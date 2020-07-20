@@ -1,0 +1,31 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  name: rhpam77-custom-image-build
+  labels:
+    name: rhpam77-custom-image-build
+spec:
+  triggers:
+    - type: GitHub
+      github:
+        secret: secret101
+    - type: ImageChange
+      imageChange: {}
+    - type: ConfigChange
+  source:
+    type: Git
+    git:
+      uri: 'https://github.com/atef23/rhpam77-custom-image.git'
+  strategy:
+    type: Docker
+    dockerStrategy:
+      from:
+        kind: ImageStreamTag
+        name: 'rhpam-businesscentral-rhel8:7.7.0'
+      env:
+        - name: EXAMPLE
+          value: sample-app
+  output:
+    to:
+      kind: ImageStreamTag
+      name: 'rhpam-businesscentral-rhel8:custom-7.7.0'
