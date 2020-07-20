@@ -1,15 +1,14 @@
 
-# Deploying a RHPAM 7.7 in Openshift
+# Deploying an RHPAM 7.7 git-hook Enabled Authoring Environment in Openshift
 
+This project creates a custom image of RHPAM 7.7 with git-hook functionality built in.
 **Requirements:**
 - Openshift CLI
 - Openshift Cluster with namespace created for deployment
 
-Run the following commands to deploy an RHPAM 7.7 Authoring Environement based on the default Red Hat templates:
+Run the following commands to deploy an RHPAM 7.7 Authoring Environment with git hooks:
 
 ## Create a New Namespace
-
-Run the following commands to deploy an RHPAM 7.7 Authoring Environement based on the default Red Hat templates:
 
     oc new-project rhpam-77
 ## Enable Red Hat Registry Access to Pull Images
